@@ -1,6 +1,12 @@
 {{ define "title" }}Articles{{ end }}
 
 {{ define "content" }}
-<h2>Articles</h2>
-<p>Long-form writing where I explore ideas in depth and publish more polished pieces.</p>
+<h1>Articles</h1>
+<ul>
+    {{ range .Articles }}
+    <li>
+        <a href="/articles/{{ .Slug }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>
 {{ end }}
