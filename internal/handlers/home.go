@@ -1,15 +1,18 @@
 package handlers
 
 import (
-    "fmt"
     "net/http"
+    "journal/internal/render"
 )
 
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintln(w, "Welcome to vamsi's personal blog")
-}
+func Home(w http.ResponseWriter, r *http.Request) {
+    data := map[string]any {
+        "Title": "Welcome",
+        "Intro": "This is the home page",
+    }
 
-func HealthHandler(w http.ResponseWriter, r *http.Request) {
-    w.WriteHeader(http.StatusOK)
-    fmt.Fprintln(w, "OK")
+    err := render.Render(w, "home.html", data)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
 }

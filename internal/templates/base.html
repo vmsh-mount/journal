@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ block "title" . }}{{ end }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+<header class="site-header">
+    <h1 class="site-title"><a href="/">Your Name</a></h1>
+    <nav class="site-nav">
+        <a href="/articles">Articles</a>
+        <a href="/fragments">Notes</a>
+        <a href="/books">Reading</a>
+        <a href="/photos">Photos</a>
+        <a href="/now">Now</a>
+        <a href="/uses">Uses</a>
+    </nav>
+</header>
+
+<div class="container">
+    {{ block "content" . }}{{ end }}
+</div>
+
+<footer class="site-footer">
+    © {{ .Year }} My Journal
+</footer>
+
+</body>
+</html>
+
+<!-- What & Why's:
+    - block "content" . ->  lets individual pages inject content.
+-->

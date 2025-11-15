@@ -1,0 +1,39 @@
+:root{
+  --max-width: 720px;
+  --accent: #0a0a0a;
+  --muted: #666;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  color: var(--accent);
+  line-height: 1.6;
+  margin:0;
+  background:#fff;
+}
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:2rem 1rem;
+}
+.site-header{
+  border-bottom:1px solid #eee;
+  padding:1rem 0;
+}
+.site-title{ margin:0; font-size:1.1rem; font-weight:600; }
+.site-title a{ text-decoration:none; color:inherit; }
+.site-nav{ margin-top:0.5rem; font-size:0.95rem; color:var(--muted); }
+.site-nav a{ color:var(--muted); text-decoration:none; margin-right:0.75rem; }
+.site-nav a:hover{ text-decoration:underline; color:var(--accent); }
+
+.hero .meta{ color:var(--muted); margin:0 0 0.25rem 0; }
+.hero h2{ margin:0 0 1rem 0; font-size:1.6rem; }
+
+.post{ padding:1rem 0; border-bottom:1px solid #f2f2f2; }
+.post-title{ margin:0 0 0.25rem 0; font-size:1.15rem; }
+.post-title a{ color:inherit; text-decoration:none; }
+.post-meta{ margin:0 0 0.5rem 0; color:var(--muted); font-size:0.9rem; }
+.post-excerpt{ margin:0; color:#222; }
+.site-footer{ padding:2rem 0 3rem 0; color:var(--muted); font-size:0.9rem; border-top:1px solid #f2f2f2; margin-top:2rem; }
