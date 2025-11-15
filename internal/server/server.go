@@ -21,6 +21,13 @@ func New() *Server {
 func (s *Server) registerRoutes() {
 	s.mux.HandleFunc("/", handlers.Home)
 
+	s.mux.HandleFunc("/articles", handlers.Articles)
+	s.mux.HandleFunc("/fragments", handlers.Fragments)
+	s.mux.HandleFunc("/shelf", handlers.Shelf)
+	s.mux.HandleFunc("/pixels", handlers.Pixels)
+	s.mux.HandleFunc("/now", handlers.Now)
+	s.mux.HandleFunc("/uses", handlers.Uses)
+
 	// serve the static files
 	fileServer := http.FileServer(http.Dir("static"))
 	s.mux.Handle("/static/", http.StripPrefix("/static/", fileServer))
