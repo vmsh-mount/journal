@@ -1,21 +1,30 @@
 package server
 
 import (
-    "net/http"
-    "journal/internal/handlers"
+	"log"
+	"net/http"
+
+	"journal/internal/handlers"
+	"journal/internal/middleware"
+	"journal/internal/render"
 )
 
 type Server struct {
-    mux *http.ServeMux
+	mux *http.ServeMux
 }
 
-// It creates and configures the HTTP server
-func New() *Server {
-    s := &Server {
-        mux: http.NewServeMux(),
-    }
-    s.registerRoutes()
-    return s
+// New creates and configures the HTTP server
+func New() (*Server, error) {
+	// Initialize templates once at startup
+	if err := render.InitTemplates(); err != nil {
+		return nil, err
+	}
+
+	s := &Server{
+		mux: http.NewServeMux(),
+	}
+	s.registerRoutes()
+	return s, nil
 }
 
 func (s *Server) registerRoutes() {
@@ -34,9 +43,13 @@ func (s *Server) registerRoutes() {
 	s.mux.Handle("/static/", http.StripPrefix("/static/", fileServer))
 }
 
-// Start runs the HTTP server
+// Start runs the HTTP server with middleware
 func (s *Server) Start(port string) error {
-    return http.ListenAndServe(port, s.mux)
+	// Apply middleware: recovery first (outermost), then logging
+	handler := middleware.Recovery(middleware.Logging(s.mux))
+
+	log.Printf("Server starting on %s", port)
+	return http.ListenAndServe(port, handler)
 }
 
 /** What & Why's:
