@@ -1,35 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{{ block "title" . }}{{ end }}</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
+    <meta charset="UTF-8">
+    <title>{{ block "title" . }}{{ end }} — Vamsi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
-<body>
-<header class="site-header">
-    <h1 class="site-title"><a href="/">vamc</a></h1>
-    <nav class="site-nav">
-        <a href="/articles">ARTICLES</a>
-        <a href="/fragments">FRAGMENTS</a>
-        <a href="/shelf">SHELF</a>
-        <a href="/pixels">PIXELS</a>
-        <a href="/now">NOW</a>
-        <a href="/uses">USES</a>
+
+<body class="bg-[#f8f7f2] text-text font-sans leading-relaxed">
+<header class="w-full max-w-content mx-auto px-4 pt-8 pb-4">
+    <nav class="mt-2 text-[0.95rem]">
+        <a href="/articles" class="mr-4 text-text-muted no-underline hover:text-text">ARTICLES</a>
+        <a href="/fragments" class="mr-4 text-text-muted no-underline hover:text-text">FRAGMENTS</a>
+        <a href="/shelf" class="mr-4 text-text-muted no-underline hover:text-text">SHELF</a>
+        <a href="/pixels" class="mr-4 text-text-muted no-underline hover:text-text">PIXELS</a>
+        <a href="/now" class="mr-4 text-text-muted no-underline hover:text-text">NOW</a>
+        <a href="/uses" class="mr-4 text-text-muted no-underline hover:text-text">USES</a>
     </nav>
 </header>
 
-<div class="container">
-    {{ block "content" . }}{{ end }}
-</div>
+<main class="w-full max-w-content mx-auto px-4">
+    {{ block "content" . }}
+    {{ end }}
+</main>
 
-<footer class="site-footer">
-    © {{ .Year }} My Journal
+<footer class="w-full max-w-content mx-auto px-4 mt-8 pb-8 text-[0.9rem] text-text-muted border-t border-gray-300">
+    <p>© {{ .Year }} Vamsi</p>
 </footer>
-
 </body>
 </html>
-
-<!-- What & Why's:
-    - block "content" . ->  lets individual pages inject content.
--->

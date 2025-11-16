@@ -1,9 +1,12 @@
 {{ define "title" }}{{ .Title }}{{ end }}
 
 {{ define "content" }}
-<h1>{{ .Title }}</h1>
+<article>
+    <h1 class="text-[2.2rem] mb-2 font-medium">{{ .Title }}</h1>
+    <!--<div class="text-text-muted text-[0.9rem] mb-8">{{ .Date }}</div>-->
 
-<div>
-    {{ .Content }}
-</div>
+    <div class="pt-4">
+        {{ .Content }}
+    </div>
+</article>
 {{ end }}

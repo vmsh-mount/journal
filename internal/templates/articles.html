@@ -1,11 +1,13 @@
 {{ define "title" }}Articles{{ end }}
 
 {{ define "content" }}
-<h1>Articles</h1>
-<ul>
+<h1 class="mt-8 mb-4 font-medium">Articles</h1>
+<ul class="list-none p-0 m-0">
     {{ range .Articles }}
-    <li>
-        <a href="/articles/{{ .Slug }}">{{ .Title }}</a>
+    <li class="mb-8">
+        <h2 class="text-[1.4rem] mb-1 font-medium">
+            <a href="/articles/{{ .Slug }}" class="text-text no-underline hover:underline">{{ .Title }}</a>
+        </h2>
     </li>
     {{ end }}
 </ul>

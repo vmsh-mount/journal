@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f8f7f2] text-text font-sans leading-relaxed text-base;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-content mx-auto px-4;
+  }
+  
+  .site-header {
+    @apply pt-8 pb-4;
+  }
+  
+  .site-title {
+    @apply text-4xl font-semibold m-0;
+  }
+  
+  .site-title a {
+    @apply text-text no-underline;
+  }
+  
+  .site-nav {
+    @apply mt-2 text-[0.95rem];
+  }
+  
+  .site-nav a {
+    @apply mr-4 text-text-muted no-underline;
+  }
+  
+  .site-nav a:hover {
+    @apply text-text;
+  }
+  
+  main h1, main h2, main h3 {
+    @apply mt-8 mb-4 font-medium;
+  }
+  
+  main p {
+    @apply mb-6 text-[1.05rem] text-text;
+  }
+  
+  .post-list {
+    @apply list-none p-0 m-0;
+  }
+  
+  .post-item {
+    @apply mb-8;
+  }
+  
+  .post-item-title {
+    @apply text-[1.4rem] mb-1;
+  }
+  
+  .post-item-title a {
+    @apply text-text no-underline;
+  }
+  
+  .post-item-summary {
+    @apply text-text-muted text-[0.95rem];
+  }
+  
+  .article-title {
+    @apply text-[2.2rem] mb-2;
+  }
+  
+  .article-meta {
+    @apply text-text-muted text-[0.9rem] mb-8;
+  }
+  
+  .article-body {
+    @apply pt-4;
+  }
+  
+  article h2, article h3 {
+    @apply mt-7 mb-3;
+  }
+  
+  article p {
+    @apply mb-6 text-[1.05rem];
+  }
+  
+  .site-footer {
+    @apply mt-8 pb-8 text-[0.9rem] text-text-muted border-t border-gray-300;
+  }
+}
+
