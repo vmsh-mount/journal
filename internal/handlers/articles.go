@@ -1,50 +1,56 @@
 package handlers
 
 import (
-    "net/http"
+	"net/http"
 
-    "journal/internal/render"
-    "journal/internal/content"
+	"journal/internal/content"
+	"journal/internal/render"
+	"journal/internal/router"
 )
 
 func Articles(w http.ResponseWriter, r *http.Request) {
-    articles, err := content.LoadArticles()
-    if err != nil {
-        http.Error(w, "Failed to load articles", http.StatusInternalServerError)
-        return
-    }
+	articles, err := content.LoadArticles()
+	if err != nil {
+		HandleInternalError(w, r, err)
+		return
+	}
 
-    data := map[string]any {
-        "Title": "Articles",
-        "Articles": articles,
-    }
+	data := map[string]any{
+		"Title":    "Articles",
+		"Articles": articles,
+	}
 
-    if err := render.Render(w, "articles.html", data); err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-    }
+	if err := render.Render(w, "articles.html", data); err != nil {
+		HandleInternalError(w, r, err)
+	}
 }
 
 func ArticleDetail(w http.ResponseWriter, r *http.Request) {
-    slug := r.URL.Path[len("/articles/"):]
+	slug, ok := router.ExtractPathParam(r, "/articles/")
+	if !ok || slug == "" {
+		HandleNotFound(w, r)
+		return
+	}
 
-    articles, err := content.LoadArticles()
-    if err != nil {
-        http.Error(w, "Failed to load articles", http.StatusInternalServerError)
-        return
-    }
+	articles, err := content.LoadArticles()
+	if err != nil {
+		HandleInternalError(w, r, err)
+		return
+	}
 
-    // todo: optimise this later
-    for _, a := range articles {
-        if a.Slug == slug {
-            data := map[string]any {
-                "Content": a.HTML,
-            }
-            if err := render.Render(w, "article_detail.html", data); err != nil {
-                http.Error(w, err.Error(), http.StatusInternalServerError)
-            }
-            return
-        }
-    }
+	// Find article by slug
+	for _, a := range articles {
+		if a.Slug == slug {
+			data := map[string]any{
+				"Title":   a.Title,
+				"Content": a.HTML,
+			}
+			if err := render.Render(w, "article_detail.html", data); err != nil {
+				HandleInternalError(w, r, err)
+			}
+			return
+		}
+	}
 
-    http.NotFound(w, r)
+	HandleNotFound(w, r)
 }
