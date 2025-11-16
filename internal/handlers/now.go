@@ -1,16 +1,17 @@
 package handlers
 
 import (
-    "net/http"
-    "journal/internal/render"
+	"net/http"
+
+	"journal/internal/render"
 )
 
 func Now(w http.ResponseWriter, r *http.Request) {
-    data := map[string]any{
-        "Title": "Now",
-    }
+	data := map[string]any{
+		"Title": "Now",
+	}
 
-    if err := render.Render(w, "now.html", data); err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-    }
+	if err := render.Render(w, "now.html", data); err != nil {
+		HandleInternalError(w, r, err)
+	}
 }
