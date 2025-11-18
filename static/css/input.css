@@ -44,6 +44,14 @@
   main p {
     @apply mb-6 text-[1.05rem] text-text;
   }
+
+  .page-heading {
+    @apply font-serif font-normal text-8xl leading-none text-center mt-16 mb-6;
+  }
+
+  .page-heading-subtitle {
+    @apply text-text-muted text-center text-[1.2rem] italic mb-12;
+  }
   
   .post-list {
     @apply list-none p-0 m-0;
@@ -83,6 +91,155 @@
   
   article p {
     @apply mb-6 text-[1.05rem];
+  }
+  
+  .article-content {
+    @apply text-[1.05rem] leading-relaxed;
+  }
+  
+  .article-content h2 {
+    @apply mt-8 mb-4 text-xl font-medium;
+  }
+  
+  .article-content h3 {
+    @apply mt-6 mb-3 text-lg font-medium;
+  }
+  
+  .article-content p {
+    @apply mb-6;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply mb-6 ml-6;
+  }
+  
+  .article-content li {
+    @apply mb-2;
+  }
+  
+  .article-content code {
+    @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono;
+  }
+  
+  .article-content pre {
+    @apply bg-gray-100 p-4 rounded mb-6 overflow-x-auto;
+  }
+  
+  .article-content pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  .article-content a {
+    @apply text-text underline;
+  }
+  
+  .article-content blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic my-6 text-text-muted;
+  }
+
+  .articles-shell {
+    @apply relative;
+  }
+
+  .articles-grid {
+    @apply flex flex-col;
+  }
+
+  .articles-years {
+    @apply hidden md:block font-mono text-[1rem] uppercase text-text-muted;
+    position: absolute;
+    left: -75px;
+    top: 0;
+  }
+
+  .articles-years ul {
+    @apply space-y-1;
+  }
+
+  .articles-years li {
+    @apply leading-6;
+  }
+
+  .years-link {
+    @apply text-text-muted no-underline;
+  }
+
+  .years-link:hover {
+    @apply text-text;
+  }
+
+  .articles-track {
+    @apply relative pb-12;
+  }
+
+  .articles-track::before,
+  .articles-track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #dcd6c9;
+    opacity: 0.7;
+  }
+
+  .articles-track::before {
+    left: -15px;
+  }
+
+  .articles-track::after {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .articles-years {
+      display: block;
+      margin-bottom: 1.25rem;
+      position: static;
+    }
+
+    .articles-years ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .articles-years li {
+      margin: 0;
+    }
+
+    .articles-track::before,
+    .articles-track::after {
+      display: none;
+    }
+  }
+
+  .year-block {
+    @apply mb-2;
+  }
+
+  .year-heading {
+    @apply font-medium text-[1rem] uppercase mt-0
+  }
+
+  .article-entry {
+    @apply py-1;
+  }
+
+  .article-header {
+    @apply flex flex-col gap-1 md:flex-row md:items-baseline md:gap-4;
+  }
+
+  .article-title-link {
+    @apply font-serif font-medium text-[1.05rem] no-underline hover:underline leading-snug;
+  }
+
+  .article-date {
+    @apply text-text-muted text-[0.85rem] italic;
+  }
+
+  .article-summary {
+    @apply font-serif text-text-muted text-[0.95rem] leading-relaxed mt-2;
   }
   
   .site-footer {

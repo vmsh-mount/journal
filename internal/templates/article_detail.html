@@ -2,10 +2,18 @@
 
 {{ define "content" }}
 <article>
-    <h1 class="text-[2.2rem] mb-2 font-medium">{{ .Title }}</h1>
-    <!--<div class="text-text-muted text-[0.9rem] mb-8">{{ .Date }}</div>-->
+    <h1 class="text-[2.2rem] mb-4 font-medium">{{ .Title }}</h1>
+    
+    {{ if .Date }}
+    <div class="mb-8 text-text-muted text-[0.9rem]">
+        <div class="mb-1">
+            <strong>Published</strong><br>
+            {{ .Date.Format "January 2, 2006" }}
+        </div>
+    </div>
+    {{ end }}
 
-    <div class="pt-4">
+    <div class="article-content">
         {{ .Content }}
     </div>
 </article>

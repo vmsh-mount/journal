@@ -1,14 +1,45 @@
 {{ define "title" }}Articles{{ end }}
 
 {{ define "content" }}
-<h1 class="mt-8 mb-4 font-medium">Articles</h1>
-<ul class="list-none p-0 m-0">
-    {{ range .Articles }}
-    <li class="mb-8">
-        <h2 class="text-[1.4rem] mb-1 font-medium">
-            <a href="/articles/{{ .Slug }}" class="text-text no-underline hover:underline">{{ .Title }}</a>
-        </h2>
-    </li>
-    {{ end }}
-</ul>
+<h1 class="page-heading">Articles</h1>
+<p class="page-heading-subtitle">Long-form writing where I explore ideas in depth and publish more polished pieces.</p>
+
+<div class="articles-shell">
+    <div class="articles-grid">
+        <aside class="articles-years">
+            {{ if .Years }}
+            <ul class="list-none p-0 m-0">
+                {{ range .Years }}
+                <li>
+                    <a href="#{{ . }}" class="years-link">{{ . }}</a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </aside>
+
+        <div class="articles-track">
+            {{ range .ArticlesByYear }}
+            <section id="{{ .Year }}" class="year-block">
+                <h2 class="year-heading">{{ .Year }}</h2>
+                <div>
+                    {{ range .Articles }}
+                    <article class="article-entry">
+                        <div class="article-header">
+                            <a href="/articles/{{ .Slug }}" class="article-title-link">{{ .Title }}</a>
+                            {{ if .Date }}
+                            <time class="article-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+                            {{ end }}
+                        </div>
+                        {{ if .Summary }}
+                        <p class="article-summary">{{ .Summary }}</p>
+                        {{ end }}
+                    </article>
+                    {{ end }}
+                </div>
+            </section>
+            {{ end }}
+        </div>
+    </div>
+</div>
 {{ end }}
