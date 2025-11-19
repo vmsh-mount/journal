@@ -1,6 +1,42 @@
 {{ define "title" }}Fragments{{ end }}
 
 {{ define "content" }}
-<h2 class="mt-8 mb-4 font-medium">Fragments</h2>
-<p class="mb-6 text-[1.05rem] text-text">Short, unfiltered notes—quick thoughts, half-ideas, and fleeting observations.</p>
+<h1 class="page-heading">Fragments</h1>
+<p class="page-heading-subtitle">Short, unfiltered notes—quick thoughts, half-ideas, and fleeting observations.</p>
+
+<div class="articles-shell">
+    <div class="articles-grid">
+        <aside class="articles-years">
+            {{ if .Years }}
+            <ul class="list-none p-0 m-0">
+                {{ range .Years }}
+                <li>
+                    <a href="#{{ . }}" class="years-link">{{ . }}</a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </aside>
+
+        <div class="articles-track">
+            {{ range .FragmentsByYear }}
+            <section id="{{ .Year }}" class="year-block">
+                <h2 class="year-heading">{{ .Year }}</h2>
+                <div>
+                    {{ range .Fragments }}
+                    <article class="article-entry">
+                        <div class="article-header">
+                            <a href="/fragments/{{ .Slug }}" class="article-title-link">{{ .Title }}</a>
+                            {{ if .Date }}
+                            <time class="article-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+                            {{ end }}
+                        </div>
+                    </article>
+                    {{ end }}
+                </div>
+            </section>
+            {{ end }}
+        </div>
+    </div>
+</div>
 {{ end }}

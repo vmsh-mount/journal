@@ -33,6 +33,7 @@ func (s *Server) registerRoutes() {
 	s.mux.HandleFunc("/articles", handlers.Articles)
 	s.mux.HandleFunc("/articles/", handlers.ArticleDetail)
 	s.mux.HandleFunc("/fragments", handlers.Fragments)
+	s.mux.HandleFunc("/fragments/", handlers.FragmentDetail)
 	s.mux.HandleFunc("/shelf", handlers.Shelf)
 	s.mux.HandleFunc("/pixels", handlers.Pixels)
 	s.mux.HandleFunc("/now", handlers.Now)
