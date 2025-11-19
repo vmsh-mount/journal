@@ -6,11 +6,12 @@ import (
 )
 
 type Article struct {
-	Slug    string
-	Title   string
-	Summary string
-	Date    time.Time
-	HTML    template.HTML
+	Slug            string
+	Title           string
+	Summary         string
+	Date            time.Time
+	HTML            template.HTML
+	TableOfContents template.HTML
 }
 
 // Year returns the year the article was published

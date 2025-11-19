@@ -30,7 +30,7 @@ func LoadArticles() ([]models.Article, error) {
 		md := string(data)
 		md, frontmatter := parseFrontmatter(md)
 
-		html, err := render.MarkdownToHTML(md)
+		html, toc, err := render.MarkdownToHTML(md)
 		if err != nil {
 			return nil, err
 		}
@@ -41,11 +41,12 @@ func LoadArticles() ([]models.Article, error) {
 		date := extractDate(file, frontmatter)
 
 		articles = append(articles, models.Article{
-			Slug:    slug,
-			Title:   title,
-			Summary: summary,
-			Date:    date,
-			HTML:    template.HTML(html),
+			Slug:            slug,
+			Title:           title,
+			Summary:         summary,
+			Date:            date,
+			HTML:            template.HTML(html),
+			TableOfContents: template.HTML(toc),
 		})
 	}
 	return articles, nil

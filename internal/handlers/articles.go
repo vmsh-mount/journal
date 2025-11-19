@@ -83,9 +83,10 @@ func ArticleDetail(w http.ResponseWriter, r *http.Request) {
 	for _, a := range articles {
 		if a.Slug == slug {
 			data := map[string]any{
-				"Title":   a.Title,
-				"Date":    a.Date,
-				"Content": a.HTML,
+				"Title":           a.Title,
+				"Date":            a.Date,
+				"Content":         a.HTML,
+				"TableOfContents": a.TableOfContents,
 			}
 			if err := render.Render(w, "article_detail.html", data); err != nil {
 				HandleInternalError(w, r, err)
