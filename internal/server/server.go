@@ -35,6 +35,7 @@ func (s *Server) registerRoutes() {
 	s.mux.HandleFunc("/fragments", handlers.Fragments)
 	s.mux.HandleFunc("/fragments/", handlers.FragmentDetail)
 	s.mux.HandleFunc("/shelf", handlers.Shelf)
+	s.mux.HandleFunc("/shelf/", handlers.ShelfDetail)
 	s.mux.HandleFunc("/pixels", handlers.Pixels)
 	s.mux.HandleFunc("/now", handlers.Now)
 	s.mux.HandleFunc("/uses", handlers.Uses)

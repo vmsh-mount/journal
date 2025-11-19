@@ -1,6 +1,42 @@
 {{ define "title" }}Shelf{{ end }}
 
 {{ define "content" }}
-<h2 class="mt-8 mb-4 font-medium">Shelf</h2>
-<p class="mb-6 text-[1.05rem] text-text">A log of books, films, articles, and other media I'm reading or watching, with notes.</p>
+<h1 class="page-heading">Shelf</h1>
+<p class="page-heading-subtitle">A log of books, papers, films, and other media that I’ve spent time with.</p>
+
+<div class="articles-shell">
+    <div class="articles-grid">
+        <aside class="shelf-index">
+            {{ if .ShelfNav }}
+            <ul class="list-none p-0 m-0">
+                {{ range .ShelfNav }}
+                <li>
+                    <a href="#{{ .Key }}" class="years-link">{{ .Title }}</a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </aside>
+
+        <div class="articles-track shelf-track">
+            {{ range .ShelfSections }}
+            <section id="{{ .Key }}" class="shelf-section">
+                <h2 class="shelf-section-heading">{{ .Title }}</h2>
+                <ul class="shelf-list">
+                    {{ range .Items }}
+                    <li class="shelf-entry">
+                        <div class="shelf-entry-main">
+                            <a href="/shelf/{{ .Slug }}" class="shelf-entry-title">{{ .Title }}</a>
+                            {{ if .Date }}
+                            <time class="shelf-entry-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+                            {{ end }}
+                        </div>
+                    </li>
+                    {{ end }}
+                </ul>
+            </section>
+            {{ end }}
+        </div>
+    </div>
+</div>
 {{ end }}

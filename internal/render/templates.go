@@ -30,6 +30,7 @@ func InitTemplates() error {
 		"fragments.html",
 		"fragment_detail.html",
 		"shelf.html",
+		"shelf_detail.html",
 		"pixels.html",
 		"now.html",
 		"uses.html",

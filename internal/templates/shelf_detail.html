@@ -1,0 +1,30 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+
+{{ define "content" }}
+<div class="article-shell">
+    <div class="article-grid">
+        {{ if .Date }}
+        <aside class="article-meta-sidebar">
+            <p class="article-meta-label">Published</p>
+            <time class="article-meta-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </aside>
+        {{ end }}
+
+        <article class="article-body">
+            <h1 class="article-title">{{ .Title }}</h1>
+
+            {{ if .Date }}
+            <div class="article-meta-inline">
+                <p class="article-meta-label">Published</p>
+                <time class="article-meta-date">{{ .Date.Format "January 2, 2006" }}</time>
+            </div>
+            {{ end }}
+
+            <div class="article-content">
+                {{ .Content }}
+            </div>
+        </article>
+    </div>
+</div>
+{{ end }}
+

@@ -146,11 +146,18 @@
   }
 
   .articles-years {
-    @apply hidden md:block font-mono text-[1rem] uppercase text-text-muted;
+    @apply hidden md:block font-mono text-[1rem] uppercase text-text-muted text-right;
     position: absolute;
     left: -75px;
     top: 0;
   }
+
+  .shelf-index {
+      @apply hidden md:block font-serif text-[1rem] uppercase text-text-muted text-right;
+      position: absolute;
+      left: -125px;
+      top: 35px;
+    }
 
   .articles-years ul {
     @apply space-y-1;
@@ -329,6 +336,41 @@
 
   .article-toc ol ol {
     @apply mt-2 space-y-1 pl-5;
+  }
+
+  /* Shelf Layout */
+  .shelf-track {
+    @apply space-y-12;
+  }
+
+  .shelf-section {
+    @apply pt-6;
+    border-top: 1px solid #dcd6c9;
+  }
+
+  .shelf-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .shelf-section-heading {
+    @apply font-serif text-2xl font-medium mb-4;
+  }
+
+  .shelf-list {
+    @apply list-none m-0 p-0 space-y-3;
+  }
+
+  .shelf-entry-main {
+    @apply flex flex-col gap-1 md:flex-row md:items-baseline md:gap-4;
+  }
+
+  .shelf-entry-title {
+    @apply font-serif text-[1.05rem] font-medium no-underline hover:underline leading-snug;
+  }
+
+  .shelf-entry-date {
+    @apply text-[0.85rem] text-text-muted italic;
   }
 
   .site-footer {

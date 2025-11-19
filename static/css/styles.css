@@ -714,6 +714,7 @@ article p {
 
 .articles-years {
   display: none;
+  text-align: right;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1rem;
   text-transform: uppercase;
@@ -731,6 +732,28 @@ article p {
   position: absolute;
   left: -75px;
   top: 0;
+}
+
+.shelf-index {
+  display: none;
+  text-align: right;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(85 85 85 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .shelf-index {
+    display: block;
+  }
+}
+
+.shelf-index {
+  position: absolute;
+  left: -125px;
+  top: 35px;
 }
 
 .articles-years ul > :not([hidden]) ~ :not([hidden]) {
@@ -981,6 +1004,80 @@ article p {
 
 .article-toc ol ol {
   padding-left: 1.25rem;
+}
+
+/* Shelf Layout */
+
+.shelf-track > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+}
+
+.shelf-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid #dcd6c9;
+}
+
+.shelf-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.shelf-section-heading {
+  margin-bottom: 1rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+.shelf-list {
+  margin: 0px;
+  list-style-type: none;
+}
+
+.shelf-list > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.shelf-list {
+  padding: 0px;
+}
+
+.shelf-entry-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .shelf-entry-main {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+  }
+}
+
+.shelf-entry-title {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.375;
+  text-decoration-line: none;
+}
+
+.shelf-entry-title:hover {
+  text-decoration-line: underline;
+}
+
+.shelf-entry-date {
+  font-size: 0.85rem;
+  font-style: italic;
+  --tw-text-opacity: 1;
+  color: rgb(85 85 85 / var(--tw-text-opacity, 1));
 }
 
 .m-0 {
