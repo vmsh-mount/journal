@@ -1,11 +1,20 @@
 package models
 
 import (
-    "html/template"
+	"html/template"
+	"time"
 )
 
 type Article struct {
-    Slug string
-    Title string
-    HTML  template.HTML
+	Slug            string
+	Title           string
+	Summary         string
+	Date            time.Time
+	HTML            template.HTML
+	TableOfContents template.HTML
+}
+
+// Year returns the year the article was published
+func (a Article) Year() int {
+	return a.Date.Year()
 }
