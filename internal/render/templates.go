@@ -28,6 +28,7 @@ func InitTemplates() error {
 		"articles.html",
 		"article_detail.html",
 		"fragments.html",
+		"fragment_detail.html",
 		"shelf.html",
 		"pixels.html",
 		"now.html",
@@ -82,4 +83,3 @@ func renderFallback(w http.ResponseWriter, tmpl string, data map[string]any) err
 
 	return ts.ExecuteTemplate(w, "base.html", data)
 }
-
