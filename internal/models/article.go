@@ -12,6 +12,7 @@ type Article struct {
 	Date            time.Time
 	HTML            template.HTML
 	TableOfContents template.HTML
+	Tags            []string
 }
 
 // Year returns the year the article was published
