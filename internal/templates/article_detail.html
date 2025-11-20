@@ -8,6 +8,17 @@
         <aside class="article-meta-sidebar">
             <p class="article-meta-label">Published</p>
             <time class="article-meta-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+            
+            {{ if .Tags }}
+            <div class="mt-6">
+                <p class="article-meta-label">Tags</p>
+                <div class="space-y-1">
+                    {{ range .Tags }}
+                    <div>{{ . }}</div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
         </aside>
         {{ end }}
 

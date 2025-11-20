@@ -204,6 +204,64 @@
 
   .articles-track {
     @apply relative pb-12;
+    grid-column: 2;
+  }
+
+  .articles-tags {
+    @apply hidden md:block text-[0.8rem] text-text-muted leading-relaxed;
+    position: absolute;
+    top: 0px;
+    right: -250px;
+    width: 200px;
+    text-align: left;
+  }
+
+  .article-tags {
+      @apply flex flex-wrap gap-2;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+  }
+
+  .tag-link {
+    @apply text-sm text-text-muted no-underline
+           hover:text-blue-500 dark:hover:text-blue-400
+           transition-colors;
+    display: block;
+    line-height: 1.4;
+  }
+  
+  .sidebar-heading {
+    @apply font-mono text-[0.7rem] uppercase tracking-wider text-text-muted mb-3;
+  }
+  
+  .tags-container {
+    @apply flex flex-wrap gap-1.5;
+  }
+  
+  .filter-tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs text-text-muted border border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-400 transition-colors;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .filter-tag:hover {
+    @apply text-blue-500 dark:text-blue-400;
+  }
+  
+  .filter-tag.active {
+    @apply border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400;
+  }
+  
+  .tag-count {
+    @apply ml-0.5 text-[0.7rem] opacity-70;
+  }
+  
+  .active-filters {
+    @apply flex flex-wrap items-center gap-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg mb-6;
+  }
+  
+  .remove-filter {
+    @apply ml-1 text-base leading-none;
   }
 
   .articles-track::before,
@@ -286,20 +344,20 @@
   }
 
   .article-meta-label {
-    @apply uppercase tracking-[0.2em] text-[0.7rem] text-text-muted mb-1;
+    @apply text-xs uppercase tracking-wider text-gray-500 mb-2
   }
 
   .article-meta-date {
-    @apply font-serif text-text;
+    @apply text-text;
   }
 
   .article-meta-sidebar {
     @apply hidden md:block text-[0.85rem] text-text-muted leading-relaxed;
     position: absolute;
-    left: -110px;
+    left: -230px;
     top: 150px;
-    width: 100px;
-    text-align: left;
+    width: 200px;
+    text-align: right;
   }
 
   .article-meta-inline {
