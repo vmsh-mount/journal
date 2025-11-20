@@ -163,12 +163,6 @@ func ArticleDetail(w http.ResponseWriter, r *http.Request) {
 	// Find article by slug
 	for _, a := range articles {
 		if a.Slug == slug {
-			// Load all articles to find related ones
-			allArticles, err := content.LoadArticles()
-			if err != nil {
-				HandleInternalError(w, r, err)
-				return
-			}
 
 			data := map[string]any{
 				"Title":           a.Title,
