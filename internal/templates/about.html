@@ -1,0 +1,26 @@
+{{ define "title" }}About{{ end }}
+
+{{ define "content" }}
+<h1 class="page-heading">About</h1>
+<p class="page-heading-subtitle">
+    A snapshot of what I'm currently exploring, building, and thinking about.
+</p>
+
+<div class="about-shell">
+
+    {{ if .About.Image }}
+    <img src="{{ .About.Image }}" class="about-image" alt="About image" />
+    {{ end }}
+
+    <h2 class="about-title">About</h2>
+
+    <div class="about-body">
+        {{ .About.HTML }}
+    </div>
+
+    <p class="about-meta">
+        <span class="about-date">Published {{ .About.Date.Format "Jan 2, 2006" }}</span>
+    </p>
+</div>
+
+{{ end }}
