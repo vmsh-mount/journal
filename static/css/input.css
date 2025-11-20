@@ -101,11 +101,21 @@
   }
   
   .article-title {
-    @apply font-serif font-medium text-[2.2rem] leading-tight mb-4;
+    @apply font-semibold font-sans text-[6rem] leading-none mb-8 text-center;
+    width: 150%;
+    margin-left: -25%;
+    margin-right: -25%;
   }
   
   .article-meta {
     @apply text-text-muted text-[0.9rem] mb-8;
+  }
+
+  .article-meta-separator {
+    @apply my-4 border-t border-gray-300 opacity-60;
+    width: 60%;
+    margin-left: auto;
+    margin-right: 0;
   }
   
   .article-body {
@@ -121,7 +131,7 @@
   }
   
   .article-content {
-    @apply text-[1.05rem] leading-relaxed font-serif text-text;
+    @apply leading-relaxed font-serif text-text opacity-90;
   }
   
   .article-content h2 {
@@ -180,11 +190,11 @@
   }
 
   .shelf-index {
-      @apply hidden md:block font-serif text-[1rem] uppercase text-text-muted text-right;
-      position: absolute;
-      left: -125px;
-      top: 35px;
-    }
+    @apply hidden md:block font-serif text-[1rem] uppercase text-text-muted text-right;
+    position: absolute;
+    left: -125px;
+    top: 35px;
+  }
 
   .articles-years ul {
     @apply space-y-1;
@@ -202,16 +212,10 @@
     @apply text-text;
   }
 
-  .articles-track {
-    @apply relative pb-12;
-    grid-column: 2;
-  }
-
   .articles-tags {
     @apply hidden md:block text-[0.8rem] text-text-muted leading-relaxed;
     position: absolute;
-    top: 0px;
-    right: -250px;
+    right: -240px;
     width: 200px;
     text-align: left;
   }
@@ -264,6 +268,11 @@
     @apply ml-1 text-base leading-none;
   }
 
+  .articles-track {
+    @apply relative pb-12;
+    grid-column: 2;
+  }
+
   .articles-track::before,
   .articles-track::after {
     content: "";
@@ -280,7 +289,7 @@
   }
 
   .articles-track::after {
-    display: none;
+    right: -15px;
   }
 
   @media (max-width: 768px) {
@@ -323,11 +332,13 @@
   }
 
   .article-title-link {
-    @apply font-serif font-medium text-[1.05rem] no-underline hover:underline leading-snug;
+    @apply font-sans font-medium text-[1.05rem] leading-snug
+             underline underline-offset-2 decoration-gray-300
+             hover:decoration-black;
   }
 
   .article-date {
-    @apply text-text-muted text-[0.85rem] italic;
+    @apply text-text-muted text-[0.8rem] italic opacity-60;
   }
 
   .article-summary {
@@ -344,18 +355,18 @@
   }
 
   .article-meta-label {
-    @apply text-xs uppercase tracking-wider text-gray-500 mb-2
+    @apply text-xs font-bold uppercase tracking-wider text-gray-500 mb-0
   }
 
   .article-meta-date {
-    @apply text-text;
+    @apply text-[0.7rem] font-mono;
   }
 
   .article-meta-sidebar {
     @apply hidden md:block text-[0.85rem] text-text-muted leading-relaxed;
     position: absolute;
     left: -230px;
-    top: 150px;
+    top: 0px;
     width: 200px;
     text-align: right;
   }
@@ -367,8 +378,8 @@
   .article-toc {
     @apply hidden md:block text-[0.8rem] text-text-muted leading-relaxed;
     position: absolute;
-    top: 150px;
-    right: -250px;
+    top: 0px;
+    right: -230px;
     width: 200px;
     text-align: left;
   }
@@ -417,6 +428,24 @@
 
   .article-toc .toc-depth-3 {
     list-style-type: lower-roman;
+  }
+
+  .article-toc .toc-depth-1 > li > a {
+    @apply font-semibold text-text opacity-90
+           underline underline-offset-2 decoration-gray-300
+           transition-colors;
+  }
+
+  .article-toc .toc-depth-1 > li > a:hover {
+    @apply decoration-black text-black;
+  }
+
+  .article-toc .toc-depth-2 > li > a {
+    @apply font-normal text-text opacity-70;
+  }
+
+  .article-toc .toc-depth-3 > li > a {
+    @apply font-normal text-text opacity-60;
   }
 
   .article-toc ol ol {
