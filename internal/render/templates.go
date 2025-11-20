@@ -32,8 +32,7 @@ func InitTemplates() error {
 		"shelf.html",
 		"shelf_detail.html",
 		"pixels.html",
-		"now.html",
-		"uses.html",
+		"about.html",
 	}
 
 	basePath := filepath.Join("internal", "templates", "base.html")

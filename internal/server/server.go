@@ -37,8 +37,7 @@ func (s *Server) registerRoutes() {
 	s.mux.HandleFunc("/shelf", handlers.Shelf)
 	s.mux.HandleFunc("/shelf/", handlers.ShelfDetail)
 	s.mux.HandleFunc("/pixels", handlers.Pixels)
-	s.mux.HandleFunc("/now", handlers.Now)
-	s.mux.HandleFunc("/uses", handlers.Uses)
+	s.mux.HandleFunc("/about", handlers.About)
 
 	// serve the static files
 	fileServer := http.FileServer(http.Dir("static"))

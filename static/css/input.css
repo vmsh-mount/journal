@@ -36,6 +36,18 @@
   .site-nav a:hover {
     @apply text-text;
   }
+
+  .site-header {
+      @apply w-full max-w-content mx-auto px-4 pt-6 pb-3;
+  }
+
+  .site-nav {
+      @apply flex justify-between items-center text-[0.75rem] tracking-[0.12em];
+  }
+
+  .site-nav a {
+      @apply font-semibold text-text-muted no-underline hover:text-text transition-colors px-2;;
+  }
   
   main h1, main h2, main h3 {
     @apply mt-8 mb-4 font-medium;
@@ -71,6 +83,21 @@
   
   .post-item-summary {
     @apply text-text-muted text-[0.95rem];
+  }
+
+  .home-container {
+    @apply w-full flex flex-col items-center justify-center text-center mt-20;
+  }
+
+  .home-intro-title {
+    @apply font-serif font-semibold italic text-[1.75rem] leading-snug;
+    color: #3A2E1F;
+    letter-spacing: -0.01em;
+  }
+
+  .home-intro-body {
+    @apply font-serif text-[1rem] leading-relaxed mb-6 mt-10;
+    color: #4A4A3C;
   }
   
   .article-title {
@@ -371,6 +398,65 @@
 
   .shelf-entry-date {
     @apply text-[0.85rem] text-text-muted italic;
+  }
+
+  .pixel-feed {
+    @apply space-y-16 max-w-3xl mx-auto;
+  }
+
+  .pixel-entry {
+    @apply pb-12 border-b border-gray-300;
+    overflow: visible;
+  }
+
+  .pixel-image {
+    @apply w-full max-w-3xl mx-auto rounded-xl mb-4;
+  }
+
+  .pixel-image {
+    width: 200%;
+    max-width: none;
+    margin: 0 auto 1rem;
+    margin-left: -50%;
+    border-radius: 0.75rem;
+    display: block;
+  }
+
+  .pixel-title {
+    @apply font-serif font-semibold text-[1.1rem] mt-2 mb-1;
+  }
+
+  .pixel-meta {
+    @apply text-text-muted text-[0.85rem] italic;
+  }
+
+  .pixel-date {
+    @apply italic text-[0.85rem] text-text-muted;
+  }
+
+  .pixel-body {
+    @apply font-serif article-content text-[0.95rem] opacity-60;
+  }
+
+  .about-image {
+     width: 200%;
+     max-width: none;
+     margin: 0 auto 1rem;
+     border-radius: 0.75rem;
+     display: block;
+     @apply rounded-xl mb-12;
+  }
+
+  .about-title {
+    @apply font-serif font-bold text-[1.3rem] mb-6 text-text;
+  }
+
+  .about-body {
+    @apply font-serif text-[1.1rem] leading-relaxed opacity-80;
+  }
+
+  .about-date {
+    @apply text-text-muted text-[0.8rem] italic;
   }
 
   .site-footer {

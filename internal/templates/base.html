@@ -12,14 +12,13 @@
 </head>
 
 <body class="bg-[rgb(246,245,233)] text-text font-sans leading-relaxed">
-<header class="w-full max-w-content mx-auto px-4 pt-8 pb-4">
-    <nav class="mt-2 text-[0.95rem]">
-        <a href="/articles" class="mr-4 text-text-muted no-underline hover:text-text">ARTICLES</a>
-        <a href="/fragments" class="mr-4 text-text-muted no-underline hover:text-text">FRAGMENTS</a>
-        <a href="/shelf" class="mr-4 text-text-muted no-underline hover:text-text">SHELF</a>
-        <a href="/pixels" class="mr-4 text-text-muted no-underline hover:text-text">PIXELS</a>
-        <a href="/now" class="mr-4 text-text-muted no-underline hover:text-text">NOW</a>
-        <a href="/uses" class="mr-4 text-text-muted no-underline hover:text-text">USES</a>
+<header class="site-header">
+    <nav class="site-nav">
+        <a href="/articles">ARTICLES</a>
+        <a href="/fragments">FRAGMENTS</a>
+        <a href="/shelf">SHELF</a>
+        <a href="/pixels">PIXELS</a>
+        <a href="/about">ABOUT</a>
     </nav>
 </header>
 
@@ -28,8 +27,5 @@
     {{ end }}
 </main>
 
-<footer class="w-full max-w-content mx-auto px-4 mt-8 pb-8 text-[0.9rem] text-text-muted border-t border-gray-300">
-    <p>© {{ .Year }} Vamsi</p>
-</footer>
 </body>
 </html>

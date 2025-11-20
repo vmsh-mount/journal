@@ -1,6 +1,28 @@
 {{ define "title" }}Pixels{{ end }}
 
 {{ define "content" }}
-<h2 class="mt-8 mb-4 font-medium">Pixels</h2>
-<p class="mb-6 text-[1.05rem] text-text">A collection of my photographs—moments and visual stories.</p>
+<h1 class="page-heading">Pixels</h1>
+<p class="page-heading-subtitle">A visual log of moments, observations, and places.</p>
+
+<div class="pixel-feed">
+
+    {{ range .Pixels }}
+    <article class="pixel-entry">
+        {{ if .Image }}
+            <img src="{{ .Image }}" alt="{{ .Title }}" class="pixel-image" />
+        {{ end }}
+        <div class="pixel-title">{{ .Title }}</div>
+        <div class="pixel-body">
+            {{ .HTML }}
+        </div>
+
+        <p class="pixel-meta">
+            <span class="pixel-date">
+                Published {{ .Date.Format "Jan 2, 2006" }}
+            </span>
+        </p>
+
+    </article>
+    {{ end }}
+</div>
 {{ end }}
