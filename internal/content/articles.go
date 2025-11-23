@@ -39,6 +39,7 @@ func LoadArticles() ([]models.Article, error) {
 		title := extractTitle(md, frontmatter)
 		summary := extractSummary(md, frontmatter)
 		date := extractDate(file, frontmatter)
+		tags := extractTags(frontmatter)
 
 		articles = append(articles, models.Article{
 			Slug:            slug,
@@ -47,6 +48,7 @@ func LoadArticles() ([]models.Article, error) {
 			Date:            date,
 			HTML:            template.HTML(html),
 			TableOfContents: template.HTML(toc),
+			Tags:            tags,
 		})
 	}
 	return articles, nil
@@ -173,4 +175,18 @@ func extractDate(file string, frontmatter map[string]string) time.Time {
 
 	// Last resort: current time
 	return time.Now()
+}
+
+func extractTags(frontmatter map[string]string) []string {
+    tags := []string{}
+    if tagStr, ok := frontmatter["tags"]; ok {
+        tagList := strings.Split(tagStr, ",")
+        for _, tag := range tagList {
+            tag = strings.TrimSpace(tag)
+            if tag != "" {
+                tags = append(tags, tag)
+            }
+        }
+    }
+    return tags
 }

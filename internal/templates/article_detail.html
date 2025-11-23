@@ -2,26 +2,42 @@
 
 {{ define "content" }}
 <div class="article-shell">
+    <!-- TITLE SECTION -->
+    <div class="article-header">
+        <h1 class="article-title">{{ .Title }}</h1>
+        
+        <!-- IMAGE PLACEHOLDER -->
+        <!--<div class="article-image-placeholder">
+            &lt;!&ndash; Add your image here or use a placeholder &ndash;&gt;
+            <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400">
+                Article Image
+            </div>
+        </div>-->
+    </div>
+
     <div class="article-grid">
         <!-- LEFT PUBLISHED SIDEBAR -->
         {{ if .Date }}
         <aside class="article-meta-sidebar">
             <p class="article-meta-label">Published</p>
             <time class="article-meta-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+            
+            {{ if .Tags }}
+            <hr class="article-meta-separator" />
+            <div class="mt-6">
+                <p class="article-meta-label">Tags</p>
+                <div class="article-meta-date">
+                    {{ range .Tags }}
+                    <div>{{ . }}</div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
         </aside>
         {{ end }}
 
         <!-- ARTICLE BODY -->
-        <article class="article-body">
-            <h1 class="article-title">{{ .Title }}</h1>
-
-            {{ if .Date }}
-            <div class="article-meta-inline">
-                <p class="article-meta-label">Published</p>
-                <time class="article-meta-date">{{ .Date.Format "January 2, 2006" }}</time>
-            </div>
-            {{ end }}
-
+        <article class="articles-track">
             <div class="article-content">
                 {{ .Content }}
             </div>

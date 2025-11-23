@@ -1,11 +1,12 @@
-{{ define "title" }}Articles{{ end }}
+{{ define "title" }}Articles{{ if .CurrentTag }}: {{ .CurrentTag }}{{ end }}{{ end }}
 
 {{ define "content" }}
-<h1 class="page-heading">Articles</h1>
+<h1 class="page-heading">Articles{{ if .CurrentTag }}: {{ .CurrentTag }}{{ end }}</h1>
 <p class="page-heading-subtitle">Long-form writing where I explore ideas in depth and publish more polished pieces.</p>
 
 <div class="articles-shell">
     <div class="articles-grid">
+        <!-- Years Navigation (Left Sidebar) -->
         <aside class="articles-years">
             {{ if .Years }}
             <ul class="list-none p-0 m-0">
@@ -18,7 +19,9 @@
             {{ end }}
         </aside>
 
+        <!-- Main Content -->
         <div class="articles-track">
+
             {{ range .ArticlesByYear }}
             <section id="{{ .Year }}" class="year-block">
                 <h2 class="year-heading">{{ .Year }}</h2>
@@ -40,6 +43,73 @@
             </section>
             {{ end }}
         </div>
+
+        <!-- Tags Sidebar (Right Sidebar) -->
+        <aside class="articles-tags">
+            {{ if .AllTags }}
+            <div class="tags-container">
+                {{ range $tag, $count := .AllTags }}
+                <button class="filter-tag" data-tag="{{ $tag }}">
+                    {{ $tag }} <span class="tag-count">{{ $count }}</span>
+                </button>
+                {{ end }}
+            </div>
+            {{ end }}
+        </aside>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const clearFiltersBtn = document.getElementById('clear-filters');
+        
+        // Get current tags from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentTags = urlParams.get('tags') ? urlParams.get('tags').split(',') : [];
+        
+        // Update active state of tag buttons
+        filterTags.forEach(button => {
+            const tag = button.dataset.tag;
+            if (currentTags.includes(tag)) {
+                button.classList.add('active');
+            }
+            
+            // Handle tag click
+            button.addEventListener('click', function() {
+                const tag = this.dataset.tag;
+                let newTags = [...currentTags];
+                
+                // Toggle tag
+                const index = newTags.indexOf(tag);
+                if (index === -1) {
+                    newTags.push(tag);
+                } else {
+                    newTags.splice(index, 1);
+                }
+                
+                updateFilters(newTags);
+            });
+        });
+        
+        // Handle clear filters
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateFilters([]);
+            });
+        }
+        
+        function updateFilters(tags) {
+            const params = new URLSearchParams();
+            if (tags.length > 0) {
+                params.set('tags', tags.join(','));
+            }
+            
+            // Update URL and reload
+            const newUrl = window.location.pathname + (tags.length ? `?${params.toString()}` : '');
+            window.location.href = newUrl;
+        }
+    });
+</script>
 {{ end }}
