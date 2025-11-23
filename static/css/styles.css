@@ -600,15 +600,21 @@ body {
 
 .site-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.5rem;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
+  width: 100%;
 }
 
 .site-nav a {
+  white-space: nowrap;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(85 85 85 / var(--tw-text-opacity, 1));
@@ -621,6 +627,10 @@ body {
 .site-nav a:hover {
   --tw-text-opacity: 1;
   color: rgb(17 17 17 / var(--tw-text-opacity, 1));
+}
+
+.site-nav a {
+  flex: 0 0 auto;
 }
 
 main h1, main h2, main h3 {
@@ -1315,11 +1325,13 @@ article p {
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.375;
-  text-decoration-line: none;
+  text-decoration-line: underline;
+  text-decoration-color: #d1d5db;
+  text-underline-offset: 2px;
 }
 
 .shelf-entry-title:hover {
-  text-decoration-line: underline;
+  text-decoration-color: #000;
 }
 
 .shelf-entry-date {
@@ -1466,6 +1478,35 @@ article p {
   color: rgb(85 85 85 / var(--tw-text-opacity, 1));
 }
 
+@media (max-width: 768px) {
+  /* Fix oversized desktop title */
+
+  /* Page heading */
+
+  /* Page heading subtitle */
+
+  /* Years sidebar on mobile */
+
+  /* Tags sidebar on mobile */
+
+  /* Article layout */
+
+  /* Prevent overflow from long links and content */
+
+  .pixel-body {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Adjust meta information */
+
+  /* Adjust table of contents */
+
+  /* Navigation */
+
+  /* Pixels Page Mobile */
+}
+
 .pixel-body {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 0.95rem;
@@ -1502,6 +1543,149 @@ article p {
   font-style: italic;
   --tw-text-opacity: 1;
   color: rgb(85 85 85 / var(--tw-text-opacity, 1));
+}
+
+/* Mobile Responsive Styles */
+
+@media (max-width: 768px) {
+  /* Fix oversized desktop title */
+
+  .article-title {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  /* Page heading */
+
+  .page-heading {
+    font-size: 2.5rem;
+    width: 100%;
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+  }
+
+  /* Page heading subtitle */
+
+  .page-heading-subtitle {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* Years sidebar on mobile */
+
+  .articles-years {
+    left: 0;
+    position: static;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  /* Tags sidebar on mobile */
+
+  .articles-tags {
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  /* Article layout */
+
+  .article-grid {
+    display: block;
+    margin: 0;
+    padding: 0 0rem;
+  }
+
+  .articles-track {
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Prevent overflow from long links and content */
+
+  .article-title-link,
+    .article-content {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Adjust meta information */
+
+  .article-meta-sidebar {
+    position: static;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  /* Adjust table of contents */
+
+  .article-toc {
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  /* Navigation */
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .site-nav a {
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .site-nav a:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Pixels Page Mobile */
+
+  .pixel-feed {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .pixel-entry {
+    margin-bottom: 3rem;
+  }
+
+  .pixel-image {
+    max-height: 75vh;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    max-width: none;
+    border-radius: 0px;
+  }
+
+  .pixel-title {
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+  }
+
+  .pixel-body {
+    font-size: 0.95rem;
+  }
+
+  .pixel-meta {
+    font-size: 0.8rem;
+  }
 }
 
 .m-0 {
