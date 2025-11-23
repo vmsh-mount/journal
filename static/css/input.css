@@ -189,13 +189,6 @@
     top: 0;
   }
 
-  .shelf-index {
-    @apply hidden md:block font-serif text-[1rem] uppercase text-text-muted text-right;
-    position: absolute;
-    left: -125px;
-    top: 35px;
-  }
-
   .articles-years ul {
     @apply space-y-1;
   }
@@ -457,6 +450,25 @@
     @apply space-y-12;
   }
 
+  .shelf-index {
+    @apply hidden md:block font-sans font-bold text-[0.75rem] uppercase text-text-muted text-right;
+    position: absolute;
+    left: -110px;
+  }
+
+  .shelf-index ul {
+    @apply space-y-2;
+  }
+
+  .shelf-index a {
+    @apply underline underline-offset-2 decoration-gray-300 text-text-muted;
+    @apply transition-colors;
+  }
+
+  .shelf-index a:hover {
+    @apply decoration-black text-black;
+  }
+
   .shelf-section {
     @apply pt-6;
     border-top: 1px solid #dcd6c9;
@@ -468,7 +480,8 @@
   }
 
   .shelf-section-heading {
-    @apply font-serif text-2xl font-medium mb-4;
+    @apply font-sans text-2xl font-medium mb-4;
+    margin-top: 0px;
   }
 
   .shelf-list {
