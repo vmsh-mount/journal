@@ -40,6 +40,7 @@ func LoadArticles() ([]models.Article, error) {
 		summary := extractSummary(md, frontmatter)
 		date := extractDate(file, frontmatter)
 		tags := extractTags(frontmatter)
+		image := fetchImageUrl(frontmatter)
 
 		articles = append(articles, models.Article{
 			Slug:            slug,
@@ -49,6 +50,7 @@ func LoadArticles() ([]models.Article, error) {
 			HTML:            template.HTML(html),
 			TableOfContents: template.HTML(toc),
 			Tags:            tags,
+			Image:           image,
 		})
 	}
 	return articles, nil

@@ -170,6 +170,7 @@ func ArticleDetail(w http.ResponseWriter, r *http.Request) {
 				"Content":         a.HTML,
 				"TableOfContents": a.TableOfContents,
 				"Tags":            a.Tags,
+				"Image":           a.Image,
 			}
 			if err := render.Render(w, "article_detail.html", data); err != nil {
 				HandleInternalError(w, r, err)

@@ -4,15 +4,13 @@
 <div class="article-shell">
     <div class="article-header">
         <h1 class="article-title">{{ .Title }}</h1>
-
-        <!-- IMAGE PLACEHOLDER -->
-        <!--<div class="article-image-placeholder">
-            &lt;!&ndash; Add your image here or use a placeholder &ndash;&gt;
-            <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400">
-                Article Image
-            </div>
-        </div>-->
     </div>
+
+    {{ if .Image }}
+    <div>
+        <img src="{{ .Image }}" alt="{{ .Title }}" class="pixel-image" />
+    </div>
+    {{ end }}
 
     <div class="article-grid">
         <!-- LEFT PUBLISHED SIDEBAR -->

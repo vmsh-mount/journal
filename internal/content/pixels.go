@@ -34,7 +34,7 @@ func LoadPixels() ([]models.Pixel, error) {
 
         slug := strings.TrimSuffix(filepath.Base(file), ".md")
         title := extractTitle(md, frontmatter)
-        image := frontmatter["image"]
+        image := fetchImageUrl(frontmatter)
         date := extractDate(file, frontmatter)
 
         pixels = append(pixels, models.Pixel{

@@ -79,6 +79,7 @@ func FragmentDetail(w http.ResponseWriter, r *http.Request) {
 			data := map[string]any{
 				"Title":   f.Title,
 				"Date":    f.Date,
+				"Image":   f.Image,
 				"Content": f.HTML,
 			}
 			if err := render.Render(w, "fragment_detail.html", data); err != nil {

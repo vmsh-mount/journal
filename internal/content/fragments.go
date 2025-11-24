@@ -35,14 +35,20 @@ func LoadFragments() ([]models.Fragment, error) {
 		slug := strings.TrimSuffix(filepath.Base(file), ".md")
 		title := extractTitle(md, frontmatter)
 		date := extractDate(file, frontmatter)
+		image := fetchImageUrl(frontmatter)
 
 		fragments = append(fragments, models.Fragment{
 			Slug:  slug,
 			Title: title,
+		    Image: image,
 			Date:  date,
 			HTML:  template.HTML(html),
 		})
 	}
 
 	return fragments, nil
+}
+
+func fetchImageUrl(frontmatter map[string]string) string {
+    return frontmatter["image"]
 }

@@ -8,6 +8,7 @@ import (
 type Fragment struct {
 	Slug  string
 	Title string
+	Image string
 	Date  time.Time
 	HTML  template.HTML
 }
