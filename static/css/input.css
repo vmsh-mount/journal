@@ -1,3 +1,5 @@
+@import './markdown.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -130,50 +132,6 @@
   
   article p {
     @apply mb-6 text-[1.05rem];
-  }
-  
-  .article-content {
-    @apply leading-relaxed font-serif text-text opacity-90;
-  }
-  
-  .article-content h2 {
-    @apply mt-8 mb-4 text-xl font-medium;
-  }
-  
-  .article-content h3 {
-    @apply mt-6 mb-3 text-lg font-medium;
-  }
-  
-  .article-content p {
-    @apply mb-6;
-  }
-  
-  .article-content ul, .article-content ol {
-    @apply mb-6 ml-6;
-  }
-  
-  .article-content li {
-    @apply mb-2;
-  }
-  
-  .article-content code {
-    @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono;
-  }
-  
-  .article-content pre {
-    @apply bg-gray-100 p-4 rounded mb-6 overflow-x-auto;
-  }
-  
-  .article-content pre code {
-    @apply bg-transparent p-0;
-  }
-  
-  .article-content a {
-    @apply text-text underline;
-  }
-  
-  .article-content blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic my-6 text-text-muted;
   }
 
   .articles-shell {
@@ -539,7 +497,7 @@
   }
 
   .pixel-body {
-    @apply font-serif article-content text-[0.95rem] opacity-60;
+    @apply font-serif markdown-body text-[0.95rem] opacity-60;
   }
 
   .about-image {
@@ -622,7 +580,7 @@
 
     /* Prevent overflow from long links and content */
     .article-title-link,
-    .article-content {
+    .markdown-body {
       word-break: break-word;
       overflow-wrap: break-word;
     }
