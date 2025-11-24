@@ -13,6 +13,7 @@ import (
 	"github.com/yuin/goldmark/parser"
 	gmhtml "github.com/yuin/goldmark/renderer/html"
 	"github.com/yuin/goldmark/text"
+    "github.com/yuin/goldmark-highlighting/v2"
 )
 
 type headingInfo struct {
@@ -31,6 +32,13 @@ func MarkdownToHTML(md string) (string, string, error) {
 			extension.GFM,
 			extension.Linkify,
 			extension.Strikethrough,
+			extension.Footnote,
+			extension.DefinitionList,
+            extension.Typographer,
+			highlighting.NewHighlighting(
+                highlighting.WithStyle("github"),
+                highlighting.WithGuessLanguage(true),
+            ),
 		),
 		goldmark.WithParserOptions(
 			parser.WithAutoHeadingID(),

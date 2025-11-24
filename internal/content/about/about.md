@@ -1,5 +1,5 @@
 ---
-image: ""
+image: https://cdn-images-1.medium.com/max/2400/0*giNAg0lT_5Plv7bX
 date : 2025-11-01
 ---
 
