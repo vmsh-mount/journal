@@ -2,7 +2,7 @@
 title: Synchronising Time in Distributed Systems
 date: 2024-10-15
 image: https://images.unsplash.com/photo-1506686098657-5eeb165b4353?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-tags: distributed-systems, time, engineering
+tags: distributed-systems, time
 summary: Computers don’t actually “know” the real time — they just count from whatever they’re told, which leads to drift and mismatches across machines. In distributed systems, these tiny timing errors snowball into big coordination problems.
 ---
 
