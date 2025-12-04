@@ -93,7 +93,7 @@
 .markdown-body code {
   border-radius: 0.25rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(2 23 45 / var(--tw-bg-opacity, 1));
+  background-color: rgb(232 240 251 / var(--tw-bg-opacity, 1));
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   padding-top: 0.125rem;
@@ -102,7 +102,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
-  color: rgb(232 240 251 / var(--tw-text-opacity, 1));
+  color: rgb(2 23 45 / var(--tw-text-opacity, 1));
 }
 
 .markdown-body pre {
@@ -1738,7 +1738,7 @@ article p {
 .pixel-body code {
   border-radius: 0.25rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(2 23 45 / var(--tw-bg-opacity, 1));
+  background-color: rgb(232 240 251 / var(--tw-bg-opacity, 1));
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   padding-top: 0.125rem;
@@ -1747,7 +1747,7 @@ article p {
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
-  color: rgb(232 240 251 / var(--tw-text-opacity, 1));
+  color: rgb(2 23 45 / var(--tw-text-opacity, 1));
 }
 
 .pixel-body pre {

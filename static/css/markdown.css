@@ -31,7 +31,7 @@
 
 /* Code blocks */
 .markdown-body code {
-  @apply bg-[#02172d] text-[#e8f0fb] px-1 py-0.5 rounded font-mono text-sm;
+  @apply bg-[#e8f0fb] text-[#02172d] px-1 py-0.5 rounded font-mono text-sm;
 }
 
 .markdown-body pre {
