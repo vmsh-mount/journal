@@ -1,5 +1,6 @@
 ---
 title: The Alchemist
+author: PAULO COELHO
 date: 2024-03-24
 image: https://m.media-amazon.com/images/I/81FPzmB5fgL._AC_UF1000,1000_QL80_.jpg
 category: books
